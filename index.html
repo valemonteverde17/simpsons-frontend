@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Springfield Hoy — Fan Site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;800&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="dia">
+
+  <header class="tv-header">
+    <div class="tv-header__inner">
+      <a href="#inicio" class="brand">
+        <span class="brand__dial"></span>
+        <span class="brand__text">Springfield<em>Hoy</em></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="mainNav">
+        <a href="#inicio">Inicio</a>
+        <a href="#personajes">Personajes</a>
+        <a href="#frases">Frases</a>
+        <a href="#trivia">Trivia</a>
+        <a href="#votacion">Votación</a>
+        <button class="theme-toggle" id="themeToggle" type="button">
+          <span id="themeIcon">☀️</span> <span id="themeLabel">Día</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="hero__text">
+        <p class="hero__kicker">un fan site no oficial</p>
+        <h1>Bienvenido a<br><span class="hero__town">Springfield</span></h1>
+        <p class="hero__sub">Un rincón amarillo del internet dedicado a la familia más querida de la televisión: personajes, frases inolvidables y trivia para poner a prueba a cualquier fanático.</p>
+        <div class="hero__actions">
+          <a href="#personajes" class="btn btn--primary">Conocer a la familia</a>
+          <a href="#trivia" class="btn btn--ghost">Jugar trivia</a>
+        </div>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="donut">
+          <div class="donut__hole"></div>
+          <div class="sprinkle s1"></div>
+          <div class="sprinkle s2"></div>
+          <div class="sprinkle s3"></div>
+          <div class="sprinkle s4"></div>
+          <div class="sprinkle s5"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONAJES -->
+    <section id="personajes" class="section">
+      <div class="section__head">
+        <h2>Personajes</h2>
+        <p>Busca y filtra por grupo para descubrir quién vive en Springfield.</p>
+      </div>
+
+      <div class="controls">
+        <input type="search" id="searchInput" placeholder="Buscar personaje..." aria-label="Buscar personaje">
+        <div class="chip-group" id="filterChips">
+          <button class="chip is-active" data-filter="todos">Todos</button>
+          <button class="chip" data-filter="familia">Familia</button>
+          <button class="chip" data-filter="amigos">Amigos</button>
+          <button class="chip" data-filter="vecinos">Vecinos</button>
+        </div>
+      </div>
+
+      <div class="card-grid" id="characterGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>No encontramos a nadie con ese nombre en Springfield. Prueba con otra búsqueda.</p>
+    </section>
+
+    <!-- FRASES -->
+    <section id="frases" class="section section--tint">
+      <div class="section__head">
+        <h2>Frase del día</h2>
+        <p>Presiona el botón y descubre una frase clásica al azar.</p>
+      </div>
+      <div class="quote-box">
+        <p class="quote-box__text" id="quoteText">"¡Ay, caramba!"</p>
+        <p class="quote-box__author" id="quoteAuthor">— Bart Simpson</p>
+        <button class="btn btn--primary" id="quoteBtn">Generar frase</button>
+      </div>
+    </section>
+
+    <!-- TRIVIA -->
+    <section id="trivia" class="section">
+      <div class="section__head">
+        <h2>Trivia de Springfield</h2>
+        <p>Cinco preguntas para saber qué tanto conoces la serie.</p>
+      </div>
+
+      <div class="quiz" id="quiz">
+        <div class="quiz__progress">
+          <span id="quizProgress">Pregunta 1 de 5</span>
+          <span id="quizScore">Puntaje: 0</span>
+        </div>
+        <p class="quiz__question" id="quizQuestion"></p>
+        <div class="quiz__options" id="quizOptions"></div>
+        <p class="quiz__feedback" id="quizFeedback" aria-live="polite"></p>
+        <div class="quiz__actions">
+          <button class="btn btn--primary" id="quizNextBtn" hidden>Siguiente</button>
+          <button class="btn btn--ghost" id="quizRestartBtn" hidden>Reiniciar trivia</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOTACION -->
+    <section id="votacion" class="section section--tint">
+      <div class="section__head">
+        <h2>¿Quién es tu favorito?</h2>
+        <p>Vota y mira los resultados actualizarse al instante. Los votos se guardan solo durante esta sesión.</p>
+      </div>
+      <div class="poll" id="poll"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Proyecto de fans hecho con HTML, CSS y JavaScript · Los Simpson y sus personajes son propiedad de Fox/Disney. Este sitio no tiene fines comerciales ni afiliación oficial.</p>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
